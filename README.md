@@ -1,3 +1,4 @@
+
 # 똑똑한우리집 Arduino SmartHome
 
 ![enter image description here](https://user-images.githubusercontent.com/38512972/104599174-cab99d80-56ba-11eb-9974-ee38feb24dbe.jpg)
@@ -19,6 +20,13 @@
 각 센서와 모듈들을 통하여 현재 집의 상태를 확인하고 현재 값에 따라 상태를 변경합니다. 또 스마트폰을 통하여 현재 아두이노의 상태를 확인하고 ON/OFF 버튼을 통해
 와이파이로 제어할 수 있으며 블루투스로 연결 버튼을 통해 하단에 비활성화된  블루투스 모양을 클릭해서 블루투스를 목록을 통해 블루투스를 연결하고 제어할 수 있습니다.
 
+### 사용언어 Main Languages
+- Arduino
+- JavaScript ES 6
+- NodeJS
+- C#
+- HTML5
+- CSS3
 
 ### 사용 센서
 - 적외선센서 LCD I2C >> 스마트 TV
@@ -34,9 +42,18 @@
 - Arduino IDE
 - Firebase
 - Visual Studio
+- Visual Studio Code
 - MIT App Inventor
 
-### 시연영상
+### 웹 - NodeJS
+![enter image description here](https://user-images.githubusercontent.com/38512972/104609194-23426800-56c6-11eb-82b6-a6beb254eb89.png)
+
+### 앱 - App Inventor
+![enter image description here](https://user-images.githubusercontent.com/38512972/104609148-16257900-56c6-11eb-90be-e1418ddfe7c8.PNG)
+
+### Window - Windows Form
+![enter image description here](https://user-images.githubusercontent.com/38512972/104609178-1e7db400-56c6-11eb-8a76-7ba16f752c7d.png)
+## 시연영상
 ![enter image description here](https://user-images.githubusercontent.com/38512972/104599154-c5f4e980-56ba-11eb-925f-6cb59dc88a88.PNG)
 [https://youtu.be/R7iDAxemHGg](https://youtu.be/R7iDAxemHGg)
 
