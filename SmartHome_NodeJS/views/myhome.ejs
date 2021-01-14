@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>똑똑한우리집- 상태</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  input[type="checkbox"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+label {
+  display: block;
+  position: absolute;
+  width: 60px;
+  height: 34px;
+  border-radius: 17px;
+  background-color: #ddd;
+  transition-duration: 0.2s;
+}
+table{
+  font-size: 30px;
+}
+label span {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition-duration: 0.2s;
+}
+
+label:before,
+label:after{
+  position: absolute;
+  top: 0;
+  width: 34px;
+  font-size: 11px;
+  line-height: 34px;
+  color: #fff;
+  text-align: center;
+}
+
+label:before {
+  left: 0;
+  content: 'ON';
+
+}
+
+label:after {
+  right: 0;
+  content: 'OFF';
+}
+
+input:checked + label {
+  background-color: #00c73c;
+}
+
+input:checked + label span {
+  /* left: 29px; */
+  transform: translateX(26px);
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- 네비게이션 바 시작 -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">똑똑한우리집</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <% if(session){ %>
+                  <li class="active">
+                      <a href="/">Home</a>
+                  </li>
+                  <li>
+                      <a id="loginmenu" href="/board1/boardList">게시판</a>
+                  </li>
+                  <li>
+                      <a href="/user/myhome">우리집</a>
+                  </li>
+                  <li>
+                      <a id="loginmenu" href="/user/logOut">로그아웃</a>
+                  </li>
+                  <% }else{ %>
+                  <li class="active">
+                      <a href="/">Home</a>
+                  </li>
+
+                  <li>
+                      <a id="joinmenu" href="/user/joinForm">회원가입</a>
+                  </li>
+                  <li>
+                    <a id="loginmenu" href="/user/logOut"><%= session %>님 로그아웃</a>
+                </li>
+                  <% } %>
+   
+                </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- 메모 리스트 출력하기-->
+  <div class="container">
+    <hr>
+    <h3>우리집상태</h3>
+    <br>
+    <!-- 메모 리스트 붙일 곳 -->
+    <div class="Homestate">
+        <table style="width: 300px;"> 
+          <tr style=>
+              <th>TV</th>          
+              
+              <td> 
+                <input type="button" id= "TV_ON" value="ON" onclick ="location.href='/user/state_save?tv=1'" <% if(childData.tv==1){ %>style="background-color:slateblue ;"> <% }else {%>style="background-color:#DDDDDD;"> <% } %>
+                <input type="button" id="TV_OFF" value="OFF" onclick ="location.href='/user/state_save?tv=0'" <% if(childData.tv==0){ %>style="background-color:slateblue ;"> <% }else {%>style="background-color:#DDDDDD;"> <% } %>
+              </td>
+                
+              </tr>
+          <tr>
+              <th>블라인드</th>
+               
+              <td> 
+                <input type="button" id="BLIND_ON" value="ON"onclick ="location.href='/user/state_save?blind=1'"<% if(childData.blind==1){ %>style="background-color:slateblue ;"> <% }else {%>style="background-color:#DDDDDD;"> <% } %>
+                <input type="button" id="BLIND_OFF" value="OFF"onclick ="location.href='/user/state_save?blind=0'"<% if(childData.blind==0){ %>style="background-color:slateblue ;"> <% }else {%>style="background-color:#DDDDDD;"> <% } %>
+              </td> 
+          </tr>
+          <tr>
+              <th>에어컨</th>
+              
+              <td> 
+                  <input type="button" id="AIR_ON" value="ON"onclick ="location.href='/user/state_save?LED1=1'"<% if(childData.LED1==1){ %>style="background-color:slateblue ;"> <% }else {%>style="background-color:#DDDDDD;"> <% } %>
+                  <input type="button" id="AIR_OFF" value="OFF"onclick ="location.href='/user/state_save?LED1=0'"<% if(childData.LED1==0){ %>style="background-color:slateblue ;"> <% }else {%>style="background-color:#DDDDDD;"> <% } %>
+              </td>
+
+          </tr>  
+          <tr>
+              <th>침대전등</th>
+                
+              <td> 
+                  <input type="button" id="BED_ON" value="ON" onclick ="location.href='/user/state_save?LED2=1'"<% if(childData.LED2==1){ %>style="background-color:slateblue ;"> <% }else {%>style="background-color:#DDDDDD;"> <% } %>
+                  <input type="button" id="BED_OFF" value="OFF" onclick ="location.href='/user/state_save?LED2=0'"<% if(childData.LED2==0){ %>style="background-color:slateblue ;"> <% }else {%>style="background-color:#DDDDDD;"> <% } %>
+                </td>
+          </tr>
+          <tr>
+              <th>TV전등</th>
+                
+              <td> 
+                  <input type="button" id="TV_LED_ON" value="ON" onclick ="location.href='/user/state_save?LED3=1'"<% if(childData.LED3==1){ %>style="background-color:slateblue ;"> <% }else {%>style="background-color:#DDDDDD;"> <% } %>
+                  <input type="button" id="TV_LED_OFF" value="OFF" onclick ="location.href='/user/state_save?LED3=0'"<% if(childData.LED3==0){ %>style="background-color:slateblue ;"> <% }else {%>style="background-color:#DDDDDD;"> <% } %>
+                </td> 
+          </tr>
+          <tr>
+            <th>현재온도</th>
+            <td><%=childData.temp %></td>
+            <td></td>
+          </tr>
+          <tr>
+              <th>현재습도</th>
+              <td><%=childData.hum %></td>
+              <td></td>
+            </tr>
+        </table>
+        
+        
+        
+  <!-- 네비게이션 바 끝 -->
+</div>
+
+<script>
+  
+</script>
+</body>
+
+</html>

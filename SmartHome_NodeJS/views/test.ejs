@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+  <head>
+  <meta charset="UTF-8">
+</head>
+<h1>Firebase Test</h1>
+<p>Firebase console에 데이터가 추가 되었는지 확인하세요</p>
+
+<!-- 파이어베이스 연동 -->
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDoOCoszWOJ3-JIUvAYKQPKcLj6P0PuI-M",
+    authDomain: "smarthome-50b1d.firebaseapp.com",
+    databaseURL: "https://smarthome-50b1d.firebaseio.com",
+    projectId: "smarthome-50b1d",
+    storageBucket: "smarthome-50b1d.appspot.com",
+    messagingSenderId: "1051706511319",
+    appId: "1:1051706511319:web:e89d93225957802fff8592",
+    measurementId: "G-YJMPQRWZE5"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  const newPostKey = firebase.database().ref().child('posts').push().key;
+ 
+  const postData = {
+    brdno: newPostKey,
+    brdwriter:"홍길동",
+    brdtitle:"게시판 제목",
+    brdmemo:"게시물 내용",
+    brddate: Date.now()
+  };
+ 
+  const updates = {};
+  updates['/board/' + newPostKey] = postData;
+ 
+  firebase.database().ref().update(updates);
+           
+</script>
+

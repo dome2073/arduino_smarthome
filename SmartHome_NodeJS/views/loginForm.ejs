@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>땡스피드 - 로그인</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <!-- 네비게이션 바 시작 -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                  aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">로그인</a>
+          </div>
+  
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                    <% if(session){ %>
+                        <li class="active">
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a id="loginmenu" href="/board1/boardList">게시판</a>
+                        </li>
+                        <li>
+                            <a href="/user/myhome">우리집</a>
+                        </li>
+                        <li>
+                            <a id="loginmenu" href="/user/logOut">로그아웃</a>
+                        </li>
+                        <% }else{ %>
+                        <li class="active">
+                            <a href="/">Home</a>
+                        </li>
+    
+                        <li>
+                            <a id="joinmenu" href="/user/joinForm">회원가입</a>
+                        </li>
+                        <li>
+                            <a id="loginmenu" href="/user/loginForm">로그인</a>
+                        </li>
+                        <% } %>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+  </nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <!-- 네비게이션 바 끝 -->
+
+  <!-- 가입 폼 시작 -->
+<div class="container">
+   
+    <h1>로그인 해주세요!</h1>
+    
+    <form name="form1" action="/user/loginChk" method="post">
+        <div class="form-group">
+            <label for="email">이메일</label>
+            <input type="email" class="form-control" id="email" name="id">
+        </div>
+
+        <div class="form-group">
+          <label for="pwd">비밀번호</label>
+          <input type="password" class="form-control" id="pwd" name="passwd">
+          <input type="submit" value="로그인"/>
+        </div>
+
+    </form>
+
+    
+
+</div>
+<!-- 가입 폼 끝 -->
+</body>
+</html>
