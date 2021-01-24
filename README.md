@@ -55,7 +55,7 @@
 ![enter image description here](https://user-images.githubusercontent.com/38512972/104609178-1e7db400-56c6-11eb-8a76-7ba16f752c7d.png)
 ## 시연영상
 ![enter image description here](https://user-images.githubusercontent.com/38512972/104599154-c5f4e980-56ba-11eb-925f-6cb59dc88a88.PNG)
-[https://youtu.be/R7iDAxemHGg](https://youtu.be/R7iDAxemHGg)
+
 
 ### 팀원 Contributors
 - [정대윤](https://github.com/dome2073 "정대윤")
